@@ -1,0 +1,68 @@
+{
+  "default_settings": {
+    "android_version": "9",
+    "exploit_method": "uaf",
+    "obfuscate": true,
+    "output_directory": "./output"
+  },
+  "android_versions": {
+    "7.0": {
+      "libc_base": "0xb6e00000",
+      "system_offset": "0x00047000",
+      "vulnerable_components": ["libstagefright", "libutils"],
+      "mediaserver_pid": 1234
+    },
+    "8.0": {
+      "libc_base": "0xb6d00000",
+      "system_offset": "0x00048000",
+      "vulnerable_components": ["libstagefright", "libutils"],
+      "mediaserver_pid": 1234
+    },
+    "8.1": {
+      "libc_base": "0xb6c00000",
+      "system_offset": "0x00049000",
+      "vulnerable_components": ["libstagefright", "libutils"],
+      "mediaserver_pid": 1234
+    },
+    "9.0": {
+      "libc_base": "0xb6b00000",
+      "system_offset": "0x0004a000",
+      "vulnerable_components": ["libstagefright", "libutils"],
+      "mediaserver_pid": 1234
+    }
+  },
+  "exploit_methods": {
+    "uaf": {
+      "description": "Use-After-Free em libstagefright",
+      "stability": "high",
+      "detection_risk": "medium"
+    },
+    "rop": {
+      "description": "Return-Oriented Programming chain",
+      "stability": "medium",
+      "detection_risk": "high"
+    },
+    "hybrid": {
+      "description": "Combinação de UAF + ROP",
+      "stability": "high",
+      "detection_risk": "medium"
+    }
+  },
+  "payload_settings": {
+    "nop_sled_size": 512,
+    "shellcode_obfuscation": "xor",
+    "dummy_instructions": true,
+    "dummy_frequency": 0.5
+  },
+  "mp4_settings": {
+    "injection_point": "after_metadata",
+    "preserve_validity": true,
+    "add_free_atoms": true,
+    "obfuscate_structure": true
+  },
+  "server_settings": {
+    "default_port": 8080,
+    "payload_path": "/payload.apk",
+    "download_timeout": 30
+  }
+}

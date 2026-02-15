@@ -1,0 +1,25 @@
+# Dependências da Ferramenta de Exploração Android
+
+# Manipulação de dados binários e estruturas
+struct  # Built-in, não precisa instalar
+
+# Criptografia e ofuscação
+pycryptodome>=3.15.0
+
+# Interface CLI
+click>=8.1.0
+colorama>=0.4.5
+
+# Processamento de arquivos
+Pillow>=9.0.0  # Para manipulação de imagens/thumbnails
+
+# Logging e debug
+loguru>=0.6.0
+
+# Testes (opcional)
+pytest>=7.0.0
+pytest-cov>=3.0.0
+
+# Análise estática (opcional)
+pylint>=2.13.0
+black>=22.0.0
